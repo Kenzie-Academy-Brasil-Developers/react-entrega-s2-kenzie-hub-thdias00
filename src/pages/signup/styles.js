@@ -77,3 +77,65 @@ export const Modules = styled.div`
         background: rgba(78, 71, 255, 0.1);
     }
 `;
+export const ContainerPai = styled.div`
+    width: 100vw;
+    height: 100vh;
+    background: #999999;
+    position: absolute;
+    z-index: 2;
+    opacity: 0.5;
+`;
+export const ContainerSucess = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid var(--grayClean);
+    border-radius: 5px;
+    background: var(--white);
+    position: absolute;
+    z-index: 3;
+    left: 35%;
+    top: 19%;
+    width: 30%;
+    height: 40%;
+    opacity: 100%;
+    >section{
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        width: 100%;
+        >h3{
+            font-size: 16px;
+        }
+        >button{
+            background: transparent;
+            border: transparent;
+            font-size: 20px;
+            color: var(--gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0 10px 0;
+            width: auto;
+        }
+    }
+    >div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 80%;
+        >div{
+            color: var(--gray);
+        }
+        >p{
+            color: var(--black);
+        }
+        >button{
+            width: 100%;
+            background: var(--green);
+        }
+    }
+`;
+

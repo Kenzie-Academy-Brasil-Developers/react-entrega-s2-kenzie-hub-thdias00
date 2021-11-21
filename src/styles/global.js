@@ -12,6 +12,7 @@ export default createGlobalStyle`
     --balck: #000000;
     --violet: #403CAA;
     --green: #11995E;
+    --greenClean: #E7F5EF;
     --gray: #999999;
     --grayClean: #F5F5F5;
 }
