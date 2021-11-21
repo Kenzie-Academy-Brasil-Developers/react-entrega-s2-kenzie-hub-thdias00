@@ -7,7 +7,9 @@ const Card = ({ techs, work }) => {
         <Container>
             {techs !== undefined && techs.map((e) =>
                 <Techs key={e.id} work={work}>
-                    <div>{!work ? <FiCodesandbox size={30} /> : <img src={PullRequest} />}</div>
+                    <div>
+                        <div>{!work ? <FiCodesandbox size={30} /> : <img src={PullRequest} />}</div>
+                    </div>
                     <section>
                         <h3>{e.title}</h3>
                         <span>{!work ? e.status : e.description}</span>

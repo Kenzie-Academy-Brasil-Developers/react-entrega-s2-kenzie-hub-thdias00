@@ -32,4 +32,7 @@ button{
 a{
     text-decoration: none
 }
+html, body, #root{
+    height: 100%;
+}
 `;

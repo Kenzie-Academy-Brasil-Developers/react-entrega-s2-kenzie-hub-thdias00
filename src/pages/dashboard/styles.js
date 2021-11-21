@@ -4,9 +4,15 @@ import styled from 'styled-components';
 export const Body = styled.body`
     background: var(--grayClean);
     width: 100%;
-    height:100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
+    @media (max-width: 500px){
+        height: 160vh;
+    }
+    @media (min-width: 1200px){
+        height: 115vh;
+    }
 `;
 export const Container = styled.div`
     display: flex;
@@ -27,6 +33,9 @@ export const ContentOne = styled.div`
         color: var(--black);
         padding: 20px;
         font-size: 30px;
+        @media (max-width: 1200px){
+            font-size: 15px;
+        }
         >span{
             background: var(--violet);
             color: var(--white);
@@ -36,13 +45,18 @@ export const ContentOne = styled.div`
         width: 89px;
         height: 67px;
         margin: 0 30px;
+        @media (max-width: 1200px){
+            width: 50px;
+            height: 50px;
+            margin: 0 15px;
+        }
     }
 `;
 export const ContentTwo = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    @media (max-width: 799px){
+    @media (max-width: 1200px){
         flex-direction: column;
     }
 `;
@@ -56,6 +70,10 @@ export const BoxOne = styled.div`
     width: 33%;
     height: 100%;
     margin-right: 20px;
+    @media (max-width: 1200px){
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
     >section{
         display: flex;
         flex-direction: column;
@@ -71,6 +89,9 @@ export const BoxOne = styled.div`
             >h2{
                 font-size: 22px;
                 width: 80%;
+                @media (max-width: 1200px){
+                    font-size: 15px;
+                }
             }
             >button{
                 display: flex;
@@ -83,6 +104,12 @@ export const BoxOne = styled.div`
                 border: 1px solid var(--green);
                 border-radius: 5px;
                 color: var(--white);
+                @media (max-width: 1200px){
+                    width: 20px;
+                    height: 20px;
+                    font-size: 20px;
+                    padding: 0;
+                }
             }
         }
     }
@@ -97,6 +124,10 @@ export const BoxTwo = styled.div`
     height: 100%;
     border-radius: 5px;
     margin-right: 20px;
+    @media (max-width: 1200px){
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
     >section{
         display: flex;
         flex-direction: column;
@@ -112,6 +143,9 @@ export const BoxTwo = styled.div`
             >h2{
                 font-size: 22px;
                 width:80%;
+                @media (max-width: 1200px){
+                    font-size: 15px;
+                }
             }
             >button{
                 display: flex;
@@ -124,6 +158,12 @@ export const BoxTwo = styled.div`
                 border: 1px solid var(--violet);
                 border-radius: 5px;
                 color: var(--white);
+                @media (max-width: 1200px){
+                    width: 20px;
+                    height: 20px;
+                    font-size: 20px;
+                    padding: 0;
+                }
             }
         }
     }
@@ -136,10 +176,15 @@ export const BoxThree = styled.div`
     background: var(--white);
     width: 33%;
     border-radius: 5px;
+    padding-bottom: 20px;
+    @media (max-width: 1200px){
+        width: 100%;
+    }
     >section{
         width: 100%;
         display: flex;
         flex-direction: column;
+        margin-bottom: 20px;
         >div{
             width: 100%;
             height: 20%;
@@ -147,8 +192,15 @@ export const BoxThree = styled.div`
             border-radius: 5px;
             display: flex;
             padding: 20px;
+            @media (max-width: 1200px){
+                height: auto;
+            }
             >img{
                 margin-right: 20px;
+                @media (max-width: 1200px){
+                    width: 50px;
+                    height: 50px;
+                }
             }
             >div{
                 color: var(--white);
@@ -157,6 +209,10 @@ export const BoxThree = styled.div`
                 }
             }
         }
+    }
+    >button{
+        background: var(--grayClean);
+        color: var(--gray);
     }
 `;
 export const ContainerPai = styled.div`
@@ -182,6 +238,11 @@ export const ContainerTech = styled.div`
     width: 30%;
     height: 40%;
     opacity: 100%;
+    @media (max-width: 1200px){
+        left: 1%;
+        width: auto;
+        height: auto;            
+    }
     >section{
         display: flex;
         justify-content: space-between;

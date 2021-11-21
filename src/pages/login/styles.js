@@ -24,6 +24,9 @@ border: 2px solid var(--grayClean);
 box-sizing: border-box;
 border-radius: 5px;
 width: 30%;
+@media (max-width: 700px){
+    width: 70%;
+}
     >form{
         display: flex;
         flex-direction: column;

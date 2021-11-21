@@ -5,7 +5,6 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-height: 100vh;
     > h1{
         text-align: center;
         color: var(--black);
@@ -24,6 +23,9 @@ border: 2px solid var(--grayClean);
 box-sizing: border-box;
 border-radius: 5px;
 width: 30%;
+@media (max-width: 700px){
+    width: 95%;
+}
     >form{
         display: flex;
         flex-direction: column;
@@ -66,6 +68,10 @@ export const Modules = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    @media (max-width: 1200px){
+        flex-direction: column;
+        align-items: center;
+    }
     >button{
         border: transparent;
         background: transparent;

@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 
 const Dashboard = ({ authenticated, setAuthenticated }) => {
     const [dado, setDado] = useState([]);
@@ -60,6 +60,14 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
             .then((response) => {
                 console.log(response);
             });
+    }
+
+    const history = useHistory();
+
+    function back() {
+        localStorage.clear();
+        setAuthenticated(false)
+        history.push("/")
     }
     if (!authenticated) {
         <Redirect to="/" />
@@ -130,8 +138,8 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
                                 <img src={UserImage} alt="imagem" />
                                 <div><h3>{dado.name}</h3><p>{dado.course_module}</p></div>
                             </div>
-
                         </section>
+                        <Button onClick={back}>Logout</Button>
                     </BoxThree>
                 </ContentTwo>
             </Container>
