@@ -14,16 +14,22 @@ import { toast } from "react-toastify";
 import { Redirect, useHistory } from 'react-router';
 
 const Dashboard = ({ authenticated, setAuthenticated }) => {
+    //states para aplicação
     const [dado, setDado] = useState([]);
     const [techs, setTechs] = useState(false);
+    const [newTech, setNewTech] = useState();
+
+    //token e dados do usuário
     const [token] = useState(
         JSON.parse(localStorage.getItem("@Kenzie:token")) || ""
     );
     const [user] = useState(
         JSON.parse(localStorage.getItem("@Kenzie:user")) || ""
     );
+
+    //funcionalidades do form
     const schema = yup.object().shape({
-        tittle: yup.string().required("Campo Obrigatório")
+        title: yup.string().required("Campo Obrigatório")
     });
     const {
         register,
@@ -31,6 +37,7 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
         formState: { errors },
     } = useForm({ resolver: yupResolver(schema) });
 
+    //função que carrega os dados do usuario
     function loadDado() {
         api
             .get(`/users/${user.id}`, {
@@ -45,38 +52,51 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
 
     useEffect(() => {
         loadDado();
-    }, []);
+    }, [dado]);
 
+    //função para aparecer a pop up de cadastrar techs
     function changeTechs() {
         setTechs(!techs);
     }
-    function signupTech() {
+
+    //função para armazenar o valor do status da tec nova
+    function addTec(e) {
+        setNewTech(e.target.value)
+    }
+
+    //função para cadastrar nova tech
+    function signupTech(data) {
+        data.status = newTech;
         api
-            .post(`/users/${user.id}/techs`, {
+            .post(`/users/techs`, data, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             })
             .then((response) => {
-                console.log(response);
-            });
+                setDado([response.data])
+            })
+            .catch((err) => toast.error("Tecnologia já cadastrada"))
     }
 
     const history = useHistory();
 
+    //função logout
     function back() {
         localStorage.clear();
         setAuthenticated(false)
         history.push("/")
     }
+
+    //Condição para apenas o usuário logado poder acessar o dashboard
     if (!authenticated) {
         <Redirect to="/" />
     }
     return (
-        <Body>
+        <>
             {techs &&
                 <>
-                    <ContainerPai />
+                    <ContainerPai techs={techs} />
                     <ContainerTech>
                         <section>
                             <h3>Cadastrar Tecnologia</h3>
@@ -88,7 +108,7 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
                                 label="Tech"
                                 type="text"
                                 register={register}
-                                name="tittle"
+                                name="title"
                                 placeholder="Nome da Tech"
                                 error={!!errors.tittle}
                                 helperText={errors.tittle?.message}
@@ -96,9 +116,9 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
                             <Block>
                                 <p>Selecionar status:</p>
                                 <Modules>
-                                    <Button value="Iniciante" onClick={module}>Iniciante</Button>
-                                    <Button value="Intermediário" onClick={module}>Intermediário</Button>
-                                    <Button value="Avançado" onClick={module}>Avançado</Button>
+                                    <Button value="Iniciante" onClick={addTec}>Iniciante</Button>
+                                    <Button value="Intermediário" onClick={addTec}>Intermediário</Button>
+                                    <Button value="Avançado" onClick={addTec}>Avançado</Button>
                                 </Modules>
                             </Block>
                             <Button type="submit">Cadastrar</Button>
@@ -143,7 +163,7 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
                     </BoxThree>
                 </ContentTwo>
             </Container>
-        </Body>
+        </>
     )
 }
 export default Dashboard;

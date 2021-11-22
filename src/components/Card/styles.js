@@ -18,15 +18,11 @@ export const Techs = styled.div`
         height: auto;            
     }
     :hover{
-        cursor: pointer;
         >div{
             >div{
                 background: ${(props) => (props.work ? "#403CAA" : "#11995E")};
                 color: ${(props) => (props.work ? "#403CAA" : "#E7E5Ef")};
             }
-        }
-        >span{
-            background: ${(props) => (props.work ? "#403CAA" : "#11995E")};
         }
     }
     >div{
@@ -74,9 +70,13 @@ export const Techs = styled.div`
             }
         }
     }
-    >span{
-        width: 4%;
-        height: 100%;
-        background: ${(props) => (props.work ? "#403CAA1A" : "#E7E5Ef")};
+    >button{
+        background: var(--red);
+        width: 15%;
+        height: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 5px;
     }
 `;

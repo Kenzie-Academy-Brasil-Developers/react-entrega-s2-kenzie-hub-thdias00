@@ -1,22 +1,10 @@
 import styled from 'styled-components';
 
 
-export const Body = styled.body`
-    background: var(--grayClean);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    @media (max-width: 500px){
-        height: 160vh;
-    }
-    @media (min-width: 1200px){
-        height: 115vh;
-    }
-`;
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    transform: translateX(22.5%);
     width: 70%;
 `;
 export const ContentOne = styled.div`
@@ -170,54 +158,46 @@ export const BoxTwo = styled.div`
 `;
 
 export const BoxThree = styled.div`
+    width: 33%;
+    height: 100%;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    background: var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: var(--white);
-    width: 33%;
-    border-radius: 5px;
-    padding-bottom: 20px;
     @media (max-width: 1200px){
         width: 100%;
-    }
-    >section{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
         margin-bottom: 20px;
-        >div{
-            width: 100%;
-            height: 20%;
+    }
+    >section {
+        > div{
+            display: flex;
             background: var(--violet);
             border-radius: 5px;
-            display: flex;
             padding: 20px;
-            @media (max-width: 1200px){
-                height: auto;
-            }
-            >img{
-                margin-right: 20px;
-                @media (max-width: 1200px){
-                    width: 50px;
-                    height: 50px;
-                }
+            color: var(--white);
+             > img{
+                width: 20%;
+                height: 20%;
             }
             >div{
-                color: var(--white);
-                >h3{
-                    margin-bottom: 20px;
-                }
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 20px;
             }
         }
     }
     >button{
         background: var(--grayClean);
         color: var(--gray);
+        margin-top: 20px;
     }
 `;
 export const ContainerPai = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 180vh;
     background: #999999;
     position: absolute;
     z-index: 2;
@@ -236,12 +216,14 @@ export const ContainerTech = styled.div`
     left: 35%;
     top: 19%;
     width: 30%;
-    height: 40%;
+    height: auto;
     opacity: 100%;
     @media (max-width: 1200px){
+        left: 33%;            
+    }
+    @media (max-width: 799px){
         left: 1%;
-        width: auto;
-        height: auto;            
+        width: 99%;
     }
     >section{
         display: flex;

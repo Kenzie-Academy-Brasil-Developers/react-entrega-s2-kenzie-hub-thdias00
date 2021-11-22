@@ -21,6 +21,7 @@ height: 100vh;
 
 export const Content = styled.div`
 border: 2px solid var(--grayClean);
+background: var(--white);
 box-sizing: border-box;
 border-radius: 5px;
 width: 30%;
